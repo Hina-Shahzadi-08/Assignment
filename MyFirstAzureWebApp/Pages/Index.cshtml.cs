@@ -15,8 +15,8 @@ public class IndexModel : PageModel
     }
     public IActionResult Index()
     {
-           ViewBag.Connection = _configuration["ConnectionStrings"];
-           return View();
+          var environment = _configuration["BuildEnvironment:Name"];
+        ViewData["environment"] = environment;
     }
     public void OnGet()
     {
