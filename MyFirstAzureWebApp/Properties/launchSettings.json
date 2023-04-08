@@ -14,6 +14,15 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:7007;http://localhost:5071",
       "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Local"
+      }
+    },
+    "MyFirstAzureWebApp-Development": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7007;http://localhost:5071",
+      "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
