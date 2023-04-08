@@ -20,7 +20,7 @@
 name: Build and deploy ASP.Net Core app to an Azure Web App
 
 env:
-  AZURE_WEBAPP_NAME: DevopsAssignment1   # set this to the name of your Azure Web App
+  AZURE_WEBAPP_NAME: webapp-demo-riu-ms2023-v002    # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '6.0.*'                 # set this to the .NET Core version to use
 
@@ -57,7 +57,7 @@ jobs:
         working-directory: "./MyFirstAzureWebApp" # added by BASHARAT
 
       - name: Test # added by BASHARAT
-        run: dotnet test --no-build --verbosity normal # added by BASHARAT
+        run: dotnet test  # added by BASHARAT
         working-directory: "./FirstAzureAppTestProject" # added by BASHARAT
       
       - name: dotnet publish
@@ -88,14 +88,14 @@ jobs:
       - name: Login job
         uses: azure/login@v1
         with:
-           creds: ${{ secrets.AZURE_CREDENTIALS }}
+           creds: ${{ secrets.AZURE_CREDENTIALS_V002 }}
           
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
+     
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_V002 }}
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE_V002}}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
   deploy_TST:
@@ -112,11 +112,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: .net-app
-
-      - name: Login job
-        uses: azure/login@v1
-        with:
-           creds: ${{ secrets.AZURE_CREDENTIALS_V002 }}
           
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
