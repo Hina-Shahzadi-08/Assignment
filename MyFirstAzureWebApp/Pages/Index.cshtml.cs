@@ -13,11 +13,14 @@ public class IndexModel : PageModel
         _logger = logger;
         _configuration = configuration;
     }
-
-    public void OnGet()
+    public IActionResult Index()
     {
            ViewBag.Connection = _configuration["ConnectionStrings"];
            return View();
+    }
+    public void OnGet()
+    {
+        
     }
 
     private readonly IDictionary<string, string> Users = new Dictionary<string, string>()
