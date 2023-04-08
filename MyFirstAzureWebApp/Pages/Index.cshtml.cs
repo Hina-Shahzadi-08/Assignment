@@ -13,14 +13,10 @@ public class IndexModel : PageModel
         _logger = logger;
         _configuration = configuration;
     }
-    public IActionResult Index()
-    {
-          var environment = _configuration["BuildEnvironment:Name"];
-        ViewData["environment"] = environment;
-    }
     public void OnGet()
     {
-        
+         var environment = _configuration["BuildEnvironment:Name"];
+        ViewData["environment"] = environment;
     }
 
     private readonly IDictionary<string, string> Users = new Dictionary<string, string>()
