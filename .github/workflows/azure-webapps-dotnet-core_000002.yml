@@ -99,7 +99,7 @@ jobs:
     needs: deploy_DEV
     environment:
       name: 'Test'
-      url:https://assignment2001.azurewebsites.net/
+      url: https://assignment2001.azurewebsites.net/
 
     steps:
       - name: Download artifact from build job
