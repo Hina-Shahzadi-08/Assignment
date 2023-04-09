@@ -121,7 +121,7 @@ jobs:
     needs: deploy_TST
     environment:
       name: 'Staging'
-      url: https://assignment2000.azurewebsites.net/
+      url: https://rabia11.azurewebsites.net/
 
     steps:
       - name: Download artifact from build job
@@ -129,11 +129,11 @@ jobs:
         with:
           name: .net-app
           
-      - name: Deploy to https://assignment2000.azurewebsites.net/
+      - name: Deploy to https://rabia11.azurewebsites.net/
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: assignment2000
+          app-name: Rabia11
           publish-profile: ${{ secrets.RABIA_PROFILE}}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
   deploy_PRD:
