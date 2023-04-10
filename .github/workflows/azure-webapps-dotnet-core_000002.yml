@@ -99,7 +99,7 @@ jobs:
     needs: deploy_DEV
     environment:
       name: 'Test'
-      url: https://assignment2001.azurewebsites.net/
+      url: https://devassig.azurewebsites.net/
 
     steps:
       - name: Download artifact from build job
@@ -107,11 +107,11 @@ jobs:
         with:
           name: .net-app
           
-      - name: Deploy to https://assignment2001.azurewebsites.net/
+      - name: Deploy to https://devassig.azurewebsites.net/
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: assignment2001
+          app-name: DevAssig
           publish-profile: ${{ secrets.HADIA_PROFILE}}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
   deploy_STG:
